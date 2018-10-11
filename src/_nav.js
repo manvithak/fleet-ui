@@ -16,7 +16,7 @@ export default {
     },
     {
       name: 'By Vehicle',
-      url: '/home/theme/colors',
+      url: '#',
       icon: 'icon-drop',
     },
     {
@@ -34,7 +34,7 @@ export default {
     },
     {
       name: 'Zone Comparision',
-      url: '/home/activetrips',
+      url: '/home/dashboard',
       icon: 'fa fa-automobile'
     },
     {
@@ -44,7 +44,7 @@ export default {
     },
     {
       name: 'Tolls & Taxes report',
-      url: '/home/driver',
+      url: '#',
       icon: 'icon-puzzle',
     },
     {
@@ -62,17 +62,17 @@ export default {
     },
     {
       name: 'DVIR Summary',
-      url: '/home/addDriver',
+      url: '#',// /home/addDriver
       icon: 'icon-puzzle',
     },
     {
       name: 'Fuel Report',
-      url: '#',
+      url: '/home/fuel',
       icon: 'icon-puzzle',
     },
     {
       name: 'Breakdown Summary',
-      url: '#',
+      url: '/home/breakdown',
       icon: 'icon-puzzle',
     },
     {

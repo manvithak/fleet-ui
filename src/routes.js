@@ -132,11 +132,22 @@ const Logs = Loadable({
 const AdminVehicles = Loadable({
   loader: () => import('./views/Admin/vehicles'),
   loading: Loading,
-})
+});
+
+const AdminFuel = Loadable({
+  loader: () => import('./views/Admin/fuel'),
+  loading: Loading,
+});
+
+const AdminBreakdown = Loadable({
+  loader: () => import('./views/Admin/breakdown'),
+  loading: Loading,
+});
+
 const AdminDrivers = Loadable({
   loader: () => import('./views/Admin/driver.js'),
   loading: Loading,
-})
+});
 
 const ManagerVehicles =  Loadable({
   loader: () => import('./views/Base/Tables/vehicles'),
@@ -261,6 +272,8 @@ const routes = [
   { path: '/srinivas/addDevice', excat: true, name: 'By Operation Team', component: AddDevice },
   { path: '/home/dashboard', name: 'By Operation Team', component: Dashboard },
   { path: '/home/vehicles', name:'Vehicles', component:AdminVehicles },
+  { path: '/home/fuel', name:'Fuel Report', component:AdminFuel },
+  { path: '/home/breakdown', name:'Breakdown Summary', component:AdminBreakdown },
   { path: '/home/addDriver', name:'Drivers', component:AdminDrivers },
   { path: '/manager/dashboard', name: 'By Operation Team', component: ManagerDashboard },
   { path: '/home/theme', exact: true, name: 'Theme', component: Colors },
