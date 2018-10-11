@@ -18,6 +18,10 @@ export default {
       name: 'By Vehicle',
       url: '#',
       icon: 'icon-drop',
+      badge: {
+        variant: 'info',
+        text: 'SOON',
+      },
     },
     {
       name: 'By Zone',
@@ -41,11 +45,19 @@ export default {
       name: 'Time Sheet Summary',
       url: '#',
       icon: 'icon-puzzle',
+      badge: {
+        variant: 'info',
+        text: 'SOON',
+      },
     },
     {
       name: 'Tolls & Taxes report',
       url: '#',
       icon: 'icon-puzzle',
+      badge: {
+        variant: 'info',
+        text: 'SOON',
+      },
     },
     {
       title: true,
@@ -64,6 +76,10 @@ export default {
       name: 'DVIR Summary',
       url: '#',// /home/addDriver
       icon: 'icon-puzzle',
+      badge: {
+        variant: 'info',
+        text: 'SOON',
+      },
     },
     {
       name: 'Fuel Report',
@@ -79,11 +95,19 @@ export default {
       name: 'Accident Summary',
       url: '#',
       icon: 'icon-puzzle',
+      badge: {
+        variant: 'info',
+        text: 'SOON',
+      },
     },
     {
       name: 'Service Summary',
       url: '#',
       icon: 'icon-puzzle',
+      badge: {
+        variant: 'info',
+        text: 'SOON',
+      },
     }
   ]  
     /*{

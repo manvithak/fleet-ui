@@ -239,8 +239,8 @@ const Colors = Loadable({
   loading: Loading,
 });
 
-const Typography = Loadable({
-  loader: () => import('./views/Theme/Typography'),
+const ByZones = Loadable({
+  loader: () => import('./views/Theme/Zones/byZones'),
   loading: Loading,
 });
 
@@ -278,7 +278,7 @@ const routes = [
   { path: '/manager/dashboard', name: 'By Operation Team', component: ManagerDashboard },
   { path: '/home/theme', exact: true, name: 'Theme', component: Colors },
   { path: '/home/theme/colors', name: 'Colors', component: Colors },
-  { path: '/home/byZones', name: 'Typography', component: Typography },
+  { path: '/home/byZones', name: 'By Zones', component: ByZones },
   { path: '/home/base', exact: true, name: 'Base', component: Cards },
   { path: '/home/base/cards', name: 'Cards', component: Cards },
   { path: '/home/base/forms', name: 'Forms', component: Forms },

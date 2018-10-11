@@ -195,7 +195,7 @@ const cardChartData4 = {
   labels: ['zone-1', 'zone-2', 'zone-3', 'zone-4'],
   datasets: [
     {
-      label: 'My First dataset',
+      label: 'Fuel',
       backgroundColor: 'rgba(54, 162, 235, 1)',
       borderColor: 'transparent',
       data: [78, 81, 80, 45],
@@ -204,6 +204,39 @@ const cardChartData4 = {
 };
 
 const cardChartOpts4 = {
+  tooltips: {
+    enabled: false,
+    custom: CustomTooltips
+  },
+  maintainAspectRatio: false,
+  legend: {
+    display: false,
+  },
+  scales: {
+    xAxes: [
+      {
+        display: true,
+        barPercentage: 0.6,
+      }],
+    yAxes: [
+      {
+        display: true,
+      }],
+  },
+};
+const cardChartData5 = {
+  labels: ['zone-1', 'zone-2', 'zone-3', 'zone-4'],
+  datasets: [
+    {
+      label: 'Breakdowns',
+      backgroundColor: 'rgba(54, 162, 235, 1)',
+      borderColor: 'transparent',
+      data: [78, 81, 80, 45],
+    },
+  ],
+};
+
+const cardChartOpts5 = {
   tooltips: {
     enabled: false,
     custom: CustomTooltips
@@ -682,7 +715,7 @@ class Dashboard extends Component {
             <Card className="text-white">
               <CardBody>
                 <div>
-                  <Bar data={cardChartData4} options={cardChartOpts4}/>
+                  <Bar data={cardChartData5} options={cardChartOpts5}/>
                 </div> 
               </CardBody>
             </Card>

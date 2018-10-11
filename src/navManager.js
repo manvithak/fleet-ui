@@ -28,6 +28,10 @@ export default {
       name: 'Route Planning',
       url: '#',
       icon: 'icon-puzzle',
+      badge: {
+        variant: 'info',
+        text: 'SOON',
+      },
     },
     {
       name: 'Logs',
@@ -38,11 +42,19 @@ export default {
       name: 'Location History',
       url: '#',
       icon: 'icon-puzzle',
+      badge: {
+        variant: 'info',
+        text: 'SOON',
+      },
     },
     {
       name: 'Tolls & Taxes',
       url: '#',
       icon: 'icon-puzzle',
+      badge: {
+        variant: 'info',
+        text: 'SOON',
+      },
     },
     {
       title: true,
@@ -72,16 +84,28 @@ export default {
       name: 'Accident Logs',
       url: '#',
       icon: 'icon-puzzle',
+      badge: {
+        variant: 'info',
+        text: 'SOON',
+      },
     },
     {
       name: 'RSA Logs',
       url: '#',
       icon: 'icon-puzzle',
+      badge: {
+        variant: 'info',
+        text: 'SOON',
+      },
     },
     {
       name: 'Service Logs',
       url: '#',
       icon: 'icon-puzzle',
+      badge: {
+        variant: 'info',
+        text: 'SOON',
+      },
     },
     /*{
       name: 'Base',
