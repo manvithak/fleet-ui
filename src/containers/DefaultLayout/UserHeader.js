@@ -32,13 +32,13 @@ class DefaultHeader extends Component {
             <NavLink href="/">Fleet Dashboard</NavLink>
           </NavItem>
           <NavItem className="px-3">
-            <NavLink href="#/users">Logged In As Business Admin</NavLink>
+            <NavLink href="#/users">Logged In As Admin</NavLink>
           </NavItem>
         </Nav>
         <Nav className="ml-auto" navbar>
           <AppHeaderDropdown direction="down">
             <DropdownToggle nav>
-              admin<img src={'assets/img/avatars/6.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
+              manvitha<img src={'assets/img/avatars/6.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
             </DropdownToggle>
             <DropdownMenu right style={{ right: 'auto' }}>
               <DropdownItem><i className="fa fa-lock"></i><a href="#/">Logout</a></DropdownItem>

@@ -12,51 +12,51 @@ class Vehicles extends Component {
         vNumber: 'TS09 E 1105',
         modelNumber: 'K. Pradeep Sagar',
         type: 'truck',
-        payload: 50,
-        fuelCapacity: 20,
+        payload: 1500,
+        fuelCapacity: 100,
         serviceInterval: 1500,
       },
       {
         vNumber: 'TS09 EJ 0252',
         modelNumber: 'P.Sandeep',
         type: 'mini-truck',
-        payload: 20,
-        fuelCapacity: 20,
+        payload: 1000,
+        fuelCapacity: 70,
         serviceInterval: 1000,
       },{
         vNumber: 'TS09 E 4215',
         modelNumber: 'A. Shekhar',
         type: 'scooter',
-        payload: 2,
-        fuelCapacity: 20,
+        payload: 200,
+        fuelCapacity: 200,
         serviceInterval: 800,
       },{
         vNumber: 'TS09 E 3824',
         modelNumber: 'G. Bhupal',
         type: 'mini-truck',
-        payload: 10,
-        fuelCapacity: 20,
+        payload: 600,
+        fuelCapacity: 60,
         serviceInterval: 1000,
       },{
         vNumber: 'TS09 E 7216',
         modelNumber: 'B N. Chary',
         type: 'scooter',
-        payload: 2,
+        payload: 250,
         fuelCapacity: 20,
         serviceInterval: 1000,
       },{
         vNumber: 'TS09 E 2367',
         modelNumber: 'J. Naresh',
         type: 'scooter',
-        payload: 2,
-        fuelCapacity: 20,
+        payload: 200,
+        fuelCapacity: 25,
         serviceInterval: 1000,
       },{
         vNumber: 'TS09 E 1189',
         modelNumber: 'G. PaidiRaju',
         type: 'scooter',
-        payload: 1,
-        fuelCapacity: 20,
+        payload: 100,
+        fuelCapacity: 15,
         serviceInterval: 1000,
       }],
       modal: false,
@@ -194,8 +194,8 @@ class Vehicles extends Component {
                     <th>VehicleNumber</th>
                     <th>Driver Name</th>
                     <th>Type</th>
-                    <th>Payload in Tons</th>
-                    <th>Fuel Capacity</th>
+                    <th>Payload in Kg</th>
+                    <th>Fuel Capacity in Lit</th>
                     <th>Service Interval</th>
                   </tr>
                   </thead>

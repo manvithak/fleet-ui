@@ -148,6 +148,11 @@ const ManagerFuelLogs = Loadable({
   loading: Loading,
 })
 
+const ManagerBreakdownLogs = Loadable({
+  loader: () => import('./views/Base/Tables/breakdown'),
+  loading: Loading,
+})
+
 const ManagerDashboard = Loadable({
   loader: () => import('./views/Dashboard/ManagerDashboard'),
   loading: Loading,
@@ -270,6 +275,7 @@ const routes = [
   { path: '/manager/ActiveTrips', name: 'ActiveTrips', component: ActiveTrips },
   { path: '/manager/vehicles', name: 'Vehicles', component: ManagerVehicles },
   { path: '/manager/fuelLogs', name: 'Fuel', component: ManagerFuelLogs },
+  { path: '/manager/breakdownLogs', name: 'Breakdowns', component: ManagerBreakdownLogs },
   { path: '/home/base/tabs', name: 'Tabs', component: Tabs },
   { path: '/home/base/breadcrumbs', name: 'Breadcrumbs', component: Breadcrumbs },
   { path: '/home/base/carousels', name: 'Carousel', component: Carousels },

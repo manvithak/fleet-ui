@@ -32,7 +32,7 @@ class DefaultHeader extends Component {
             <NavLink href="/">Fleet Dashboard</NavLink>
           </NavItem>
           <NavItem className="px-3">
-            <NavLink href="#/users">Logged In as Regional Admin</NavLink>
+            <NavLink href="#/users">Logged In as Business User</NavLink>
           </NavItem>
         </Nav>
         <Nav className="ml-auto" navbar>

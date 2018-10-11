@@ -65,7 +65,7 @@ export default {
     },
     {
       name: 'BreakDown Logs',
-      url: '#',
+      url: '/manager/breakdownLogs',
       icon: 'icon-puzzle',
     },
     {
