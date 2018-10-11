@@ -162,17 +162,22 @@ const AdminDVIR = Loadable({
 const ManagerVehicles =  Loadable({
   loader: () => import('./views/Base/Tables/vehicles'),
   loading: Loading,
-})
+});
+
+const ManagerRoute =  Loadable({
+  loader: () => import('./views/TrackAndTrace/routePlanning'),
+  loading: Loading,
+});
 
 const ManagerFuelLogs = Loadable({
   loader: () => import('./views/Base/Tables/fuel'),
   loading: Loading,
-})
+});
 
 const ManagerBreakdownLogs = Loadable({
   loader: () => import('./views/Base/Tables/breakdown'),
   loading: Loading,
-})
+});
 
 const ManagerDashboard = Loadable({
   loader: () => import('./views/Dashboard/ManagerDashboard'),
@@ -298,6 +303,7 @@ const routes = [
   { path: '/manager/logs', name: 'Logs', component: Logs },
   { path: '/manager/drivers', name: 'Drivers', component: Drivers },
   { path: '/manager/ActiveTrips', name: 'ActiveTrips', component: ActiveTrips },
+  { path: '/manager/routePlan', name: 'Route Plan', component: ManagerRoute },
   { path: '/manager/vehicles', name: 'Vehicles', component: ManagerVehicles },
   { path: '/manager/fuelLogs', name: 'Fuel', component: ManagerFuelLogs },
   { path: '/manager/breakdownLogs', name: 'Breakdowns', component: ManagerBreakdownLogs },

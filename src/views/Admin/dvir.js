@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 import { Badge, Card, CardBody, CardHeader, CardFooter, Col, Pagination, PaginationItem,
- PaginationLink, Row, Table, Button } from 'reactstrap';
+ PaginationLink, Row, Table, Button, ButtonDropdown,
+  DropdownItem,
+  DropdownMenu,
+  DropdownToggle, } from 'reactstrap';
 import { CustomTooltips } from '@coreui/coreui-plugin-chartjs-custom-tooltips';
 import { getStyle, hexToRgba } from '@coreui/coreui/dist/js/coreui-utilities';
 import {Bar} from 'react-chartjs-2';
+import DateRangePicker from 'react-bootstrap-daterangepicker';
+import 'bootstrap-daterangepicker/daterangepicker.css';
 
 const brandPrimary = getStyle('--primary')
 const brandSuccess = getStyle('--success')
@@ -160,14 +165,48 @@ const cardChartOpts4 = {
   },
 };
 class DVIR extends Component {
+  constructor(props){
+    super(props);
+    this.state={
+      dropdownOpen: new Array(19).fill(false),
+    }
+    this.toggle = this.toggle.bind(this);
+  }
+  toggle(i) {
+    const newArray = this.state.dropdownOpen.map((element, index) => { return (index === i ? !element : false); });
+    this.setState({
+      dropdownOpen: newArray,
+    });
+  }
   render() {
     return (
       <div className="animated fadeIn">
         <Row>
+          <Col lg="2" md="2">
+            <DateRangePicker>
+                <Button block color="info">Filter By Date</Button>
+              </DateRangePicker>
+          </Col>
+          <Col lg="10" md="10">    
+            <ButtonDropdown isOpen={this.state.dropdownOpen[1]} toggle={() => { this.toggle(1); }}>
+              <DropdownToggle caret color="info">
+                All Zones
+              </DropdownToggle>
+              <DropdownMenu right>
+                <DropdownItem>Zone 1</DropdownItem>
+                <DropdownItem>Zone 2</DropdownItem>
+                <DropdownItem>Zone 3</DropdownItem>
+                <DropdownItem>Zone 4</DropdownItem>
+              </DropdownMenu>
+            </ButtonDropdown>
+          </Col> 
+        </Row>
+        <br />
+        <Row>
           <Col xs="12" sm="6" lg="3">
             <Card className="text-white bg-success">
-              <CardBody className="pb-0">
-                <div>Zone:1</div>
+              <CardBody>
+                <h5><strong>Zone:1</strong></h5>
                 <Row>
                   <Col md="8">
                     <div>Perfect</div>
@@ -184,8 +223,8 @@ class DVIR extends Component {
 
           <Col xs="12" sm="6" lg="3">
             <Card className="text-white bg-primary">
-              <CardBody className="pb-0">
-                <div>Zone:2</div>
+              <CardBody >
+                <h5><strong>Zone:2</strong></h5>
                 <Row>
                   <Col md="8">
                     <div>Perfect</div>
@@ -202,8 +241,8 @@ class DVIR extends Component {
 
           <Col xs="12" sm="6" lg="3">
             <Card className="text-white bg-warning">
-              <CardBody className="pb-0">
-                <div>Zone:3</div>
+              <CardBody >
+                <h5><strong>Zone:3</strong></h5>
                 <Row>
                   <Col md="8">
                     <div>Perfect</div>
@@ -220,8 +259,8 @@ class DVIR extends Component {
 
           <Col xs="12" sm="6" lg="3">
             <Card className="text-white bg-danger">
-              <CardBody className="pb-0">
-                <div>Zone:4</div>
+              <CardBody >
+                <h5><strong>Zone:4</strong></h5>
                 <Row>
                   <Col md="8">
                     <div>Perfect</div>
@@ -252,6 +291,14 @@ class DVIR extends Component {
             <Bar data={cardChartData4} options={cardChartOpts4}/>
           </Col>
         </Row>
+        <Row>
+          <Col md="12" lg="12">
+            <div className="load-button">
+              <Button block color="info">Load More</Button>
+            </div>  
+          </Col>
+        </Row>
+        <br/>
       </div>
 
     );

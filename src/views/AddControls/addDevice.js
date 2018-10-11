@@ -82,7 +82,7 @@ class Vehicles extends Component {
               <ModalBody>
                 <Card>
                   <CardHeader>
-                    <strong>AddVehicle</strong> Form
+                    <strong>Add Device</strong>
                   </CardHeader>
                   <CardBody>
                     <Form onSubmit={this.handleSubmit} encType="multipart/form-data" className="form-horizontal">

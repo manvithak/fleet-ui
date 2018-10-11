@@ -14,7 +14,7 @@ export default {
       },
       class: ''             // optional class names space delimited list for title item ex: "text-center"
     },
-    {
+    /*{
       name: 'By Vehicle',
       url: '#',
       icon: 'icon-drop',
@@ -22,7 +22,7 @@ export default {
         variant: 'info',
         text: 'SOON',
       },
-    },
+    },*/
     {
       name: 'By Zone',
       url: '/home/byZones',

@@ -5,7 +5,9 @@ Modal,ModalHeader,ModalBody,ModalFooter,Form,FormGroup, Input,Label,CardHeader} 
 
 import Widget03 from '../Widgets/Widget03'
 import { CustomTooltips } from '@coreui/coreui-plugin-chartjs-custom-tooltips';
-import { getStyle, hexToRgba } from '@coreui/coreui/dist/js/coreui-utilities'
+import { getStyle, hexToRgba } from '@coreui/coreui/dist/js/coreui-utilities';
+import DateRangePicker from 'react-bootstrap-daterangepicker';
+import 'bootstrap-daterangepicker/daterangepicker.css';
 
 const brandPrimary = getStyle('--primary')
 const brandSuccess = getStyle('--success')
@@ -156,37 +158,33 @@ class ActiveTrips extends Component {
           </Col>
         </Row>
         <Row className="align-items-center">
-            <Button  color="secondary" className="mx-3"><span className="text-muted">Search By Date</span></Button>
-            <ButtonDropdown isOpen={this.state.dropdownOpen[0]} toggle={() => { this.toggle(0); }}>
-              <DropdownToggle caret className="text-muted mx-3">
+          <Row>
+          <Col lg="6" md="6">
+            <DateRangePicker>
+                <Button block color="info">Filter By Date</Button>
+              </DateRangePicker>
+          </Col>
+          <Col lg="6" md="6">    
+            <ButtonDropdown isOpen={this.state.dropdownOpen[1]} toggle={() => { this.toggle(1); }}>
+              <DropdownToggle caret color="info">
                 All Drivers
               </DropdownToggle>
               <DropdownMenu right>
-                <DropdownItem header>Header</DropdownItem>
-                <DropdownItem disabled>Action Disabled</DropdownItem>
-                <DropdownItem>Action</DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>Another Action</DropdownItem>
+                <DropdownItem>Zone 1</DropdownItem>
+                <DropdownItem>Zone 2</DropdownItem>
+                <DropdownItem>Zone 3</DropdownItem>
+                <DropdownItem>Zone 4</DropdownItem>
               </DropdownMenu>
             </ButtonDropdown>
-            <ButtonDropdown isOpen={this.state.dropdownOpen[1]} toggle={() => { this.toggle(1); }}>
-              <DropdownToggle caret  className="text-muted mx-3">
-                All Trips
-              </DropdownToggle>
-              <DropdownMenu right>
-                <DropdownItem header>Header</DropdownItem>
-                <DropdownItem disabled>Action Disabled</DropdownItem>
-                <DropdownItem>Action</DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>Another Action</DropdownItem>
-              </DropdownMenu>
-            </ButtonDropdown>
+          </Col> 
+        </Row>
+
           <Col xs="12" sm="12" md="12">
             <Card className="my-3 tripcard">
               <CardBody>
                 <Row>
                   <Col xs="12" sm="12" md="3" xl="2">
-                    <p className="text-primary">TRIP#AGJL73</p>
+                    <p className="text-primary">TRIP#ATSL73</p>
                   </Col>
                   <Col xs="12" sm="12" md="6" xl="7" className="mb-4">
                     <Row>
@@ -222,7 +220,7 @@ class ActiveTrips extends Component {
                             <p className="text-muted">VEHICLE</p>
                           </Col>
                           <Col xs="12" sm="12" md="6" xl="8">
-                            <p>GJ 83 AE 3772</p>
+                            <p>TS09 EJ 0252</p>
                           </Col>
                         </Row>
                       </Col>
@@ -232,7 +230,7 @@ class ActiveTrips extends Component {
                             <p className="text-muted">AVERAGE FUEL EFFICIENCY</p>
                           </Col>
                           <Col xs="12" sm="12" md="6" xl="6">
-                            <p>6.9 kmpl</p>
+                            <p>13.4 kmpl</p>
                           </Col>
                         </Row>
                       </Col>
@@ -242,7 +240,7 @@ class ActiveTrips extends Component {
                             <p className="text-muted">DRIVING TIME</p>
                           </Col>
                           <Col xs="12" sm="12" md="6" xl="8">
-                            <p>8 Hours 21 mins</p>
+                            <p>15 mins</p>
                           </Col>
                         </Row>
                       </Col>
@@ -272,7 +270,7 @@ class ActiveTrips extends Component {
                             <p className="text-muted">STOPPAGE TIME</p>
                           </Col>
                           <Col xs="12" sm="12" md="6" xl="8">
-                            <p>1 Hour 39 mins</p>
+                            <p>27 min</p>
                           </Col>
                         </Row>
                       </Col>
@@ -302,7 +300,7 @@ class ActiveTrips extends Component {
                             <p className="text-muted">ETA</p>
                           </Col>
                           <Col xs="12" sm="12" md="6" xl="8">
-                            <p>9:21 AM - 5 Oct</p>
+                            <p>10:45 AM - 11 Oct</p>
                           </Col>
                         </Row>
                       </Col>
@@ -327,17 +325,18 @@ class ActiveTrips extends Component {
               <CardBody>
                 <Row>
                   <Col xs="12" sm="12" md="3" xl="2">
-                    <p className="text-primary">TRIP#AGJL73</p>
+                    <p className="text-primary">TRIP#ATS
+L73</p>
                   </Col>
                   <Col xs="12" sm="12" md="6" xl="7" className="mb-4">
                     <Row>
-                      <Col  xs="3" sm="3" md="3" xl="2"><span className="text-muted pull-right">Madhapur, Hyderabad</span></Col>
-                      <Col  xs="6" sm="6" md="6" xl="8"><span className="progresscircle"> <span className="avatar-status badge-success"></span><Progress color="success" value="62" className="mt-2 progress-xs" /><span className="avatar-status2 badge-success"></span></span></Col>
-                      <Col  xs="3" sm="3" md="3" xl="2"> <span className="text-muted">Ameerpet, Hyderabad</span></Col>
+                      <Col  xs="3" sm="3" md="3" xl="2"><span className="text-muted pull-right">Begumpet, Hyderabad</span></Col>
+                      <Col  xs="6" sm="6" md="6" xl="8"><span className="progresscircle"> <span className="avatar-status badge-success"></span><Progress color="success" value="12" className="mt-2 progress-xs" /><span className="avatar-status2 badge-success"></span></span></Col>
+                      <Col  xs="3" sm="3" md="3" xl="2"> <span className="text-muted">Kukatpally, Hyderabad</span></Col>
                     </Row>
                   </Col>
                   <Col xs="12" sm="12" md="3" xl="3" className="mb-4">
-                    <p className="text-muted">62% Complete</p>
+                    <p className="text-muted">12% Complete</p>
                   </Col>
                   <Col xs="12" sm="12" md="12">
                     <Row>
@@ -357,7 +356,7 @@ class ActiveTrips extends Component {
                             <p className="text-muted">VEHICLE</p>
                           </Col>
                           <Col xs="12" sm="12" md="6" xl="8">
-                            <p>GJ 83 AE 3772</p>
+                            <p>TS09 EJ 4278</p>
                           </Col>
                         </Row>
                       </Col>
@@ -367,7 +366,7 @@ class ActiveTrips extends Component {
                             <p className="text-muted">AVERAGE FUEL EFFICIENCY</p>
                           </Col>
                           <Col xs="12" sm="12" md="6" xl="6">
-                            <p>6.9 kmpl</p>
+                            <p>15.1 kmpl</p>
                           </Col>
                         </Row>
                       </Col>
@@ -377,7 +376,7 @@ class ActiveTrips extends Component {
                             <p className="text-muted">DRIVING TIME</p>
                           </Col>
                           <Col xs="12" sm="12" md="6" xl="8">
-                            <p>8 Hours 21 mins</p>
+                            <p>1 Hour 21 mins</p>
                           </Col>
                         </Row>
                       </Col>
@@ -407,7 +406,7 @@ class ActiveTrips extends Component {
                             <p className="text-muted">STOPPAGE TIME</p>
                           </Col>
                           <Col xs="12" sm="12" md="6" xl="8">
-                            <p>1 Hour 39 mins</p>
+                            <p>25 mins</p>
                           </Col>
                         </Row>
                       </Col>
@@ -437,7 +436,7 @@ class ActiveTrips extends Component {
                             <p className="text-muted">ETA</p>
                           </Col>
                           <Col xs="12" sm="12" md="6" xl="8">
-                            <p>9:21 AM - 5 Oct</p>
+                            <p>10:21 AM - 11 Oct</p>
                           </Col>
                         </Row>
                       </Col>
@@ -462,17 +461,18 @@ class ActiveTrips extends Component {
               <CardBody>
                 <Row>
                   <Col xs="12" sm="12" md="3" xl="2">
-                    <p className="text-primary">TRIP#AGJL73</p>
+                    <p className="text-primary">TRIP#ATS
+L73</p>
                   </Col>
                   <Col xs="12" sm="12" md="6" xl="7" className="mb-4">
                     <Row>
                       <Col  xs="3" sm="3" md="3" xl="2"><span className="text-muted pull-right">Kukatpally, Hyderabad</span></Col>
-                      <Col  xs="6" sm="6" md="6" xl="8"><span className="progresscircle"> <span className="avatar-status badge-success"></span><Progress color="success" value="62" className="mt-2 progress-xs" /><span className="avatar-status2 badge-success"></span></span></Col>
+                      <Col  xs="6" sm="6" md="6" xl="8"><span className="progresscircle"> <span className="avatar-status badge-success"></span><Progress color="success" value="22" className="mt-2 progress-xs" /><span className="avatar-status2 badge-success"></span></span></Col>
                       <Col  xs="3" sm="3" md="3" xl="2"> <span className="text-muted">Begumpet, Hyderabad</span></Col>
                     </Row>
                   </Col>
                   <Col xs="12" sm="12" md="3" xl="3" className="mb-4">
-                    <p className="text-muted">62% Complete</p>
+                    <p className="text-muted">22% Complete</p>
                   </Col>
                   <Col xs="12" sm="12" md="12">
                     <Row>
@@ -492,7 +492,7 @@ class ActiveTrips extends Component {
                             <p className="text-muted">VEHICLE</p>
                           </Col>
                           <Col xs="12" sm="12" md="6" xl="8">
-                            <p>GJ 83 AE 3772</p>
+                            <p>TS09 EJ 3216</p>
                           </Col>
                         </Row>
                       </Col>
@@ -502,7 +502,7 @@ class ActiveTrips extends Component {
                             <p className="text-muted">AVERAGE FUEL EFFICIENCY</p>
                           </Col>
                           <Col xs="12" sm="12" md="6" xl="6">
-                            <p>6.9 kmpl</p>
+                            <p>18.9 kmpl</p>
                           </Col>
                         </Row>
                       </Col>
@@ -512,7 +512,7 @@ class ActiveTrips extends Component {
                             <p className="text-muted">DRIVING TIME</p>
                           </Col>
                           <Col xs="12" sm="12" md="6" xl="8">
-                            <p>8 Hours 21 mins</p>
+                            <p>1 Hour 40 mins</p>
                           </Col>
                         </Row>
                       </Col>
@@ -542,7 +542,7 @@ class ActiveTrips extends Component {
                             <p className="text-muted">STOPPAGE TIME</p>
                           </Col>
                           <Col xs="12" sm="12" md="6" xl="8">
-                            <p>1 Hour 39 mins</p>
+                            <p>20 mins</p>
                           </Col>
                         </Row>
                       </Col>
@@ -572,7 +572,7 @@ class ActiveTrips extends Component {
                             <p className="text-muted">ETA</p>
                           </Col>
                           <Col xs="12" sm="12" md="6" xl="8">
-                            <p>9:21 AM - 5 Oct</p>
+                            <p>10:50 AM - 11 Oct</p>
                           </Col>
                         </Row>
                       </Col>
@@ -597,18 +597,19 @@ class ActiveTrips extends Component {
               <CardBody>
                 <Row>
                   <Col xs="12" sm="12" md="3" xl="2">
-                    <p className="text-primary">TRIP#AGJL73</p>
+                    <p className="text-primary">TRIP#ATS
+L73</p>
                   </Col>
                   <Col xs="12" sm="12" md="6" xl="7" className="mb-4">
                     <Row>
                       <Col  xs="3" sm="3" md="3" xl="2"><span className="text-muted pull-right">Gachibowli, Hyderabad</span></Col>
                       <Col  xs="6" sm="6" md="6" xl="8"><span className="progresscircle"> <span className
-                      ="avatar-status badge-success"></span><Progress color="success" value="62" className="mt-2 progress-xs" /><span className="avatar-status2 badge-success"></span></span></Col>
+                      ="avatar-status badge-success"></span><Progress color="success" value="11" className="mt-2 progress-xs" /><span className="avatar-status2 badge-success"></span></span></Col>
                       <Col  xs="3" sm="3" md="3" xl="2"> <span className="text-muted">Banajara Hills, Hyderabad</span></Col>
                     </Row>
                   </Col>
                   <Col xs="12" sm="12" md="3" xl="3" className="mb-4">
-                    <p className="text-muted">62% Complete</p>
+                    <p className="text-muted">11% Complete</p>
                   </Col>
                   <Col xs="12" sm="12" md="12">
                     <Row>
@@ -628,7 +629,7 @@ class ActiveTrips extends Component {
                             <p className="text-muted">VEHICLE</p>
                           </Col>
                           <Col xs="12" sm="12" md="6" xl="8">
-                            <p>GJ 83 AE 3772</p>
+                            <p>TS09 EJ 4235</p>
                           </Col>
                         </Row>
                       </Col>
@@ -638,7 +639,7 @@ class ActiveTrips extends Component {
                             <p className="text-muted">AVERAGE FUEL EFFICIENCY</p>
                           </Col>
                           <Col xs="12" sm="12" md="6" xl="6">
-                            <p>6.9 kmpl</p>
+                            <p>16 kmpl</p>
                           </Col>
                         </Row>
                       </Col>
@@ -648,7 +649,7 @@ class ActiveTrips extends Component {
                             <p className="text-muted">DRIVING TIME</p>
                           </Col>
                           <Col xs="12" sm="12" md="6" xl="8">
-                            <p>8 Hours 21 mins</p>
+                            <p>1 Hour 12 mins</p>
                           </Col>
                         </Row>
                       </Col>
@@ -678,7 +679,7 @@ class ActiveTrips extends Component {
                             <p className="text-muted">STOPPAGE TIME</p>
                           </Col>
                           <Col xs="12" sm="12" md="6" xl="8">
-                            <p>1 Hour 39 mins</p>
+                            <p>39 mins</p>
                           </Col>
                         </Row>
                       </Col>
@@ -708,7 +709,7 @@ class ActiveTrips extends Component {
                             <p className="text-muted">ETA</p>
                           </Col>
                           <Col xs="12" sm="12" md="6" xl="8">
-                            <p>9:21 AM - 5 Oct</p>
+                            <p>10:35 AM - 11 Oct</p>
                           </Col>
                         </Row>
                       </Col>

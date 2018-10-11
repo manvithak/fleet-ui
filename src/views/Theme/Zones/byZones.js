@@ -20,9 +20,10 @@ import {
   Row,
   Table,
 } from 'reactstrap';
-import Widget03 from '../../Widgets/Widget03'
 import { CustomTooltips } from '@coreui/coreui-plugin-chartjs-custom-tooltips';
-import { getStyle, hexToRgba } from '@coreui/coreui/dist/js/coreui-utilities'
+import { getStyle, hexToRgba } from '@coreui/coreui/dist/js/coreui-utilities';
+import DateRangePicker from 'react-bootstrap-daterangepicker';
+import 'bootstrap-daterangepicker/daterangepicker.css';
 
 const brandPrimary = getStyle('--primary')
 const brandSuccess = getStyle('--success')
@@ -30,173 +31,12 @@ const brandInfo = getStyle('--info')
 const brandWarning = getStyle('--warning')
 const brandDanger = getStyle('--danger')
 
-// Card Chart 1
-const cardChartData1 = {
-  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-  datasets: [
-    {
-      label: 'My First dataset',
-      backgroundColor: brandPrimary,
-      borderColor: 'rgba(255,255,255,.55)',
-      data: [65, 59, 84, 84, 51, 55, 40],
-    },
-  ],
-};
-
-const cardChartOpts1 = {
-  tooltips: {
-    enabled: false,
-    custom: CustomTooltips
-  },
-  maintainAspectRatio: false,
-  legend: {
-    display: false,
-  },
-  scales: {
-    xAxes: [
-      {
-        gridLines: {
-          color: 'transparent',
-          zeroLineColor: 'transparent',
-        },
-        ticks: {
-          fontSize: 2,
-          fontColor: 'transparent',
-        },
-
-      }],
-    yAxes: [
-      {
-        display: false,
-        ticks: {
-          display: false,
-          min: Math.min.apply(Math, cardChartData1.datasets[0].data) - 5,
-          max: Math.max.apply(Math, cardChartData1.datasets[0].data) + 5,
-        },
-      }],
-  },
-  elements: {
-    line: {
-      borderWidth: 1,
-    },
-    point: {
-      radius: 4,
-      hitRadius: 10,
-      hoverRadius: 4,
-    },
-  }
-}
-
-
-// Card Chart 2
-const cardChartData2 = {
-  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-  datasets: [
-    {
-      label: 'My First dataset',
-      backgroundColor: brandInfo,
-      borderColor: 'rgba(255,255,255,.55)',
-      data: [1, 18, 9, 17, 34, 22, 11],
-    },
-  ],
-};
-
-const cardChartOpts2 = {
-  tooltips: {
-    enabled: false,
-    custom: CustomTooltips
-  },
-  maintainAspectRatio: false,
-  legend: {
-    display: false,
-  },
-  scales: {
-    xAxes: [
-      {
-        gridLines: {
-          color: 'transparent',
-          zeroLineColor: 'transparent',
-        },
-        ticks: {
-          fontSize: 2,
-          fontColor: 'transparent',
-        },
-
-      }],
-    yAxes: [
-      {
-        display: false,
-        ticks: {
-          display: false,
-          min: Math.min.apply(Math, cardChartData2.datasets[0].data) - 5,
-          max: Math.max.apply(Math, cardChartData2.datasets[0].data) + 5,
-        },
-      }],
-  },
-  elements: {
-    line: {
-      tension: 0.00001,
-      borderWidth: 1,
-    },
-    point: {
-      radius: 4,
-      hitRadius: 10,
-      hoverRadius: 4,
-    },
-  },
-};
-
-// Card Chart 3
-const cardChartData3 = {
-  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-  datasets: [
-    {
-      label: 'My First dataset',
-      backgroundColor: 'rgba(255,255,255,.2)',
-      borderColor: 'rgba(255,255,255,.55)',
-      data: [78, 81, 80, 45, 34, 12, 40],
-    },
-  ],
-};
-
-const cardChartOpts3 = {
-  tooltips: {
-    enabled: false,
-    custom: CustomTooltips
-  },
-  maintainAspectRatio: false,
-  legend: {
-    display: false,
-  },
-  scales: {
-    xAxes: [
-      {
-        display: false,
-      }],
-    yAxes: [
-      {
-        display: false,
-      }],
-  },
-  elements: {
-    line: {
-      borderWidth: 2,
-    },
-    point: {
-      radius: 0,
-      hitRadius: 10,
-      hoverRadius: 4,
-    },
-  },
-};
-
-// Card Chart 4
 const cardChartData4 = {
   labels: ['zone-1', 'zone-2', 'zone-3', 'zone-4'],
   datasets: [
     {
-      label: 'Fuel',
-      backgroundColor: 'rgba(54, 162, 235, 1)',
+      label: 'Fuel Usage',
+      backgroundColor: [brandSuccess, brandInfo, brandWarning, brandDanger],
       borderColor: 'transparent',
       data: [78, 81, 80, 45],
     },
@@ -221,6 +61,10 @@ const cardChartOpts4 = {
     yAxes: [
       {
         display: true,
+        scaleLabel: {
+        display: true,
+        labelString: 'Fuel in Lx1000'
+      }
       }],
   },
 };
@@ -229,9 +73,9 @@ const cardChartData5 = {
   datasets: [
     {
       label: 'Breakdowns',
-      backgroundColor: 'rgba(54, 162, 235, 1)',
+      backgroundColor: [brandSuccess, brandInfo, brandWarning, brandDanger],
       borderColor: 'transparent',
-      data: [78, 81, 80, 45],
+      data: [61, 76, 98, 34],
     },
   ],
 };
@@ -254,140 +98,11 @@ const cardChartOpts5 = {
     yAxes: [
       {
         display: true,
+        scaleLabel: {
+        display: true,
+        labelString: 'No of BreakDowns'
+      }
       }],
-  },
-};
-
-// Social Box Chart
-const socialBoxData = [
-  { data: [65, 59, 84, 84, 51, 55, 40], label: 'facebook' },
-  { data: [1, 13, 9, 17, 34, 41, 38], label: 'twitter' },
-  { data: [78, 81, 80, 45, 34, 12, 40], label: 'linkedin' },
-  { data: [35, 23, 56, 22, 97, 23, 64], label: 'google' },
-];
-
-const makeSocialBoxData = (dataSetNo) => {
-  const dataset = socialBoxData[dataSetNo];
-  const data = {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-    datasets: [
-      {
-        backgroundColor: 'rgba(255,255,255,.1)',
-        borderColor: 'rgba(255,255,255,.55)',
-        pointHoverBackgroundColor: '#fff',
-        borderWidth: 2,
-        data: dataset.data,
-        label: dataset.label,
-      },
-    ],
-  };
-  return () => data;
-};
-
-const socialChartOpts = {
-  tooltips: {
-    enabled: false,
-    custom: CustomTooltips
-  },
-  responsive: true,
-  maintainAspectRatio: false,
-  legend: {
-    display: false,
-  },
-  scales: {
-    xAxes: [
-      {
-        display: false,
-      }],
-    yAxes: [
-      {
-        display: false,
-      }],
-  },
-  elements: {
-    point: {
-      radius: 0,
-      hitRadius: 10,
-      hoverRadius: 4,
-      hoverBorderWidth: 3,
-    },
-  },
-};
-
-// sparkline charts
-const sparkLineChartData = [
-  {
-    data: [35, 23, 56, 22, 97, 23, 64],
-    label: 'New Clients',
-  },
-  {
-    data: [65, 59, 84, 84, 51, 55, 40],
-    label: 'Recurring Clients',
-  },
-  {
-    data: [35, 23, 56, 22, 97, 23, 64],
-    label: 'Pageviews',
-  },
-  {
-    data: [65, 59, 84, 84, 51, 55, 40],
-    label: 'Organic',
-  },
-  {
-    data: [78, 81, 80, 45, 34, 12, 40],
-    label: 'CTR',
-  },
-  {
-    data: [1, 13, 9, 17, 34, 41, 38],
-    label: 'Bounce Rate',
-  },
-];
-
-const makeSparkLineData = (dataSetNo, variant) => {
-  const dataset = sparkLineChartData[dataSetNo];
-  const data = {
-    labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-    datasets: [
-      {
-        backgroundColor: 'transparent',
-        borderColor: variant ? variant : '#c2cfd6',
-        data: dataset.data,
-        label: dataset.label,
-      },
-    ],
-  };
-  return () => data;
-};
-
-const sparklineChartOpts = {
-  tooltips: {
-    enabled: false,
-    custom: CustomTooltips
-  },
-  responsive: true,
-  maintainAspectRatio: true,
-  scales: {
-    xAxes: [
-      {
-        display: false,
-      }],
-    yAxes: [
-      {
-        display: false,
-      }],
-  },
-  elements: {
-    line: {
-      borderWidth: 2,
-    },
-    point: {
-      radius: 0,
-      hitRadius: 10,
-      hoverRadius: 4,
-      hoverBorderWidth: 3,
-    },
-  },
-  legend: {
-    display: false,
   },
 };
 
@@ -399,18 +114,18 @@ const PieData1 = {
     'Zone-4'
   ],
   datasets: [{
-    data: [150, 50, 100, 72],
+    data: [78, 81, 80, 45],
     backgroundColor: [
-    '#FF6384',
-    '#36A2EB',
-    '#FFCE56',
-    '#3A4248'
+    brandSuccess,
+    brandPrimary,
+    brandWarning,
+    brandDanger
     ],
     hoverBackgroundColor: [
-    '#FF6384',
-    '#36A2EB',
-    '#FFCE56',
-    '#3A4248'
+    brandSuccess,
+    brandPrimary,
+    brandWarning,
+    brandDanger
     ]
   }]
 };
@@ -423,18 +138,18 @@ const PieData2 = {
     'Zone-4'
   ],
   datasets: [{
-    data: [150, 50, 100, 72],
+    data: [61, 76, 98, 34],
     backgroundColor: [
-    '#FF6384',
-    '#36A2EB',
-    '#FFCE56',
-    '#3A4248'
+    brandSuccess,
+    brandPrimary,
+    brandWarning,
+    brandDanger
     ],
     hoverBackgroundColor: [
-    '#FF6384',
-    '#36A2EB',
-    '#FFCE56',
-    '#3A4248'
+    brandSuccess,
+    brandPrimary,
+    brandWarning,
+    brandDanger
     ]
   }]
 };
@@ -531,7 +246,7 @@ const mainChartOpts = {
   },
 };
 
-class Dashboard extends Component {
+class ByZone extends Component {
   constructor(props) {
     super(props);
 
@@ -539,14 +254,15 @@ class Dashboard extends Component {
     this.onRadioBtnClick = this.onRadioBtnClick.bind(this);
 
     this.state = {
-      dropdownOpen: false,
+      dropdownOpen: new Array(19).fill(false),
       radioSelected: 2,
     };
   }
 
-  toggle() {
+  toggle(i) {
+    const newArray = this.state.dropdownOpen.map((element, index) => { return (index === i ? !element : false); });
     this.setState({
-      dropdownOpen: !this.state.dropdownOpen,
+      dropdownOpen: newArray,
     });
   }
 
@@ -561,37 +277,31 @@ class Dashboard extends Component {
     return (
       <div className="animated fadeIn">
         <Row>
-          <ButtonDropdown isOpen={this.state.dropdownOpen[0]} toggle={() => { this.toggle(0); }}>
-            <DropdownToggle caret className="text-muted mx-3">
-              Filter By Date
-            </DropdownToggle>
-            <DropdownMenu right>
-              <DropdownItem header>Header</DropdownItem>
-              <DropdownItem disabled>Action Disabled</DropdownItem>
-              <DropdownItem>Action</DropdownItem>
-              <DropdownItem divider />
-              <DropdownItem>Another Action</DropdownItem>
-            </DropdownMenu>
-          </ButtonDropdown>
-          <ButtonDropdown isOpen={this.state.dropdownOpen[1]} toggle={() => { this.toggle(1); }}>
-            <DropdownToggle caret  className="text-muted mx-3">
-              All Zones
-            </DropdownToggle>
-            <DropdownMenu right>
-              <DropdownItem header>Header</DropdownItem>
-              <DropdownItem disabled>Action Disabled</DropdownItem>
-              <DropdownItem>Action</DropdownItem>
-              <DropdownItem divider />
-              <DropdownItem>Another Action</DropdownItem>
-            </DropdownMenu>
-          </ButtonDropdown>
+          <Col lg="2" md="2">
+            <DateRangePicker>
+                <Button block color="info">Filter By Date</Button>
+              </DateRangePicker>
+          </Col>
+          <Col lg="10" md="10">    
+            <ButtonDropdown isOpen={this.state.dropdownOpen[1]} toggle={() => { this.toggle(1); }}>
+              <DropdownToggle caret color="info">
+                All Zones
+              </DropdownToggle>
+              <DropdownMenu right>
+                <DropdownItem>Zone 1</DropdownItem>
+                <DropdownItem>Zone 2</DropdownItem>
+                <DropdownItem>Zone 3</DropdownItem>
+                <DropdownItem>Zone 4</DropdownItem>
+              </DropdownMenu>
+            </ButtonDropdown>
+          </Col> 
         </Row>
         <br />
         <Row>
           <Col xs="12" sm="6" lg="3">
-            <Card className="text-white bg-info">
-              <CardBody className="pb-0">
-                <div>Zone:1</div>
+            <Card className="text-white bg-success">
+              <CardBody >
+                <h5><strong>Zone:1</strong></h5>
                 <Row>
                   <Col md="8">
                     <div>Drivers</div>
@@ -599,9 +309,9 @@ class Dashboard extends Component {
                     <div>Trips</div>
                   </Col>
                   <Col md="4">
-                    <div>232</div>
-                    <div>121</div>
-                    <div>1230</div>
+                    <div>145</div>
+                    <div>120</div>
+                    <div>732</div>
                   </Col> 
                 </Row>
               </CardBody>
@@ -610,8 +320,8 @@ class Dashboard extends Component {
 
           <Col xs="12" sm="6" lg="3">
             <Card className="text-white bg-primary">
-              <CardBody className="pb-0">
-                <div>Zone:2</div>
+              <CardBody >
+                <h5><strong>Zone:2</strong></h5>
                 <Row>
                   <Col md="8">
                     <div>Drivers</div>
@@ -619,9 +329,9 @@ class Dashboard extends Component {
                     <div>Trips</div>
                   </Col>
                   <Col md="4">
-                    <div>232</div>
-                    <div>121</div>
-                    <div>1230</div>
+                    <div>179</div>
+                    <div>156</div>
+                    <div>961</div>
                   </Col> 
                 </Row>
               </CardBody>
@@ -630,8 +340,8 @@ class Dashboard extends Component {
 
           <Col xs="12" sm="6" lg="3">
             <Card className="text-white bg-warning">
-              <CardBody className="pb-0">
-                <div>Zone:3</div>
+              <CardBody >
+                <h5><strong>Zone:3</strong></h5>
                 <Row>
                   <Col md="8">
                     <div>Drivers</div>
@@ -639,9 +349,9 @@ class Dashboard extends Component {
                     <div>Trips</div>
                   </Col>
                   <Col md="4">
-                    <div>232</div>
-                    <div>121</div>
-                    <div>1230</div>
+                    <div>112</div>
+                    <div>94</div>
+                    <div>512</div>
                   </Col> 
                 </Row>
               </CardBody>
@@ -650,8 +360,8 @@ class Dashboard extends Component {
 
           <Col xs="12" sm="6" lg="3">
             <Card className="text-white bg-danger">
-              <CardBody className="pb-0">
-                <div>Zone:4</div>
+              <CardBody >
+                <h5><strong>Zone:4</strong></h5>
                 <Row>
                   <Col md="8">
                     <div>Drivers</div>
@@ -659,9 +369,9 @@ class Dashboard extends Component {
                     <div>Trips</div>
                   </Col>
                   <Col md="4">
-                    <div>232</div>
-                    <div>121</div>
-                    <div>1230</div>
+                    <div>179</div>
+                    <div>169</div>
+                    <div>1123</div>
                   </Col> 
                 </Row>
               </CardBody> 
@@ -690,14 +400,17 @@ class Dashboard extends Component {
             <Card className="text-white">
               <CardBody>
                 <div>
-                  <Pie data={PieData1}/>
+                  <Pie data={PieData2}/>
                 </div> 
               </CardBody>
             </Card>
           </Col>
         </Row>
         <Row>
-          <Col md="12">
+          <Col md="6">
+            <p>Fuel Usage</p>
+          </Col>
+          <Col md="6">
             <p>Fuel Usage</p>
           </Col>
         </Row>
@@ -726,4 +439,4 @@ class Dashboard extends Component {
   }
 }
 
-export default Dashboard;
+export default ByZone;

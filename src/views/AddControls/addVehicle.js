@@ -114,13 +114,13 @@ class Vehicles extends Component {
               <ModalBody>
                 <Card>
                   <CardHeader>
-                    <strong>AddVehicle</strong> Form
+                    <strong>Add Vehicle</strong>
                   </CardHeader>
                   <CardBody>
                     <Form onSubmit={this.handleSubmit} encType="multipart/form-data" className="form-horizontal">
                       <FormGroup row>
                         <Col md="3">
-                          <Label htmlFor="deviceId">Device Id</Label>
+                          <Label htmlFor="deviceId">Vehicle Number</Label>
                         </Col>
                         <Col xs="12" md="9">
                           <Input type="text" id="vNumber" name="vNumber" placeholder="Vehicle Number" 

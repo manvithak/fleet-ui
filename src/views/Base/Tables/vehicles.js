@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Badge, Card, CardBody, CardHeader, Col, Pagination, PaginationItem, PaginationLink, Row, Table } from 'reactstrap';
+import { Badge, Card, CardBody, CardHeader, Col, Pagination, PaginationItem, PaginationLink,
+Button, Row, Table } from 'reactstrap';
 
 class Vehicles extends Component {
   constructor(props){
@@ -77,6 +78,14 @@ class Vehicles extends Component {
             </Card>
           </Col>
         </Row>
+        <Row>
+          <Col md="12" lg="12">
+            <div className="load-button">
+              <Button block color="info">Load More</Button>
+            </div>  
+          </Col>
+        </Row>
+        <br/>
       </div>
 
     );

@@ -56,3 +56,8 @@
 .app-body .sidebar .sidebar-minimizer:hover{
 	background-color: #20a8d8;
 }
+.load-button{
+	width:20%;
+	display:block;
+	margin:auto;
+}

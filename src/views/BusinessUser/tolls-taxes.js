@@ -21,7 +21,9 @@ import {
   Table,
 } from 'reactstrap';
 import { CustomTooltips } from '@coreui/coreui-plugin-chartjs-custom-tooltips';
-import { getStyle, hexToRgba } from '@coreui/coreui/dist/js/coreui-utilities'
+import { getStyle, hexToRgba } from '@coreui/coreui/dist/js/coreui-utilities';
+import DateRangePicker from 'react-bootstrap-daterangepicker';
+import 'bootstrap-daterangepicker/daterangepicker.css';
 
 const brandPrimary = getStyle('--primary')
 const brandSuccess = getStyle('--success')
@@ -148,25 +150,31 @@ class Dashboard extends Component {
     return (
       <div className="animated fadeIn">
         <Row>
-          <ButtonDropdown isOpen={this.state.dropdownOpen[0]} toggle={() => { this.toggle(0); }}>
-            <DropdownToggle caret className="text-muted mx-3">
-              Filter By Date
-            </DropdownToggle>
-            <DropdownMenu right>
-              <DropdownItem header>Header</DropdownItem>
-              <DropdownItem disabled>Action Disabled</DropdownItem>
-              <DropdownItem>Action</DropdownItem>
-              <DropdownItem divider />
-              <DropdownItem>Another Action</DropdownItem>
-            </DropdownMenu>
-          </ButtonDropdown>
+          <Col lg="2" md="2">
+            <DateRangePicker>
+                <Button block color="info">Filter By Date</Button>
+              </DateRangePicker>
+          </Col>
+          <Col lg="10" md="10">    
+            <ButtonDropdown isOpen={this.state.dropdownOpen[1]} toggle={() => { this.toggle(1); }}>
+              <DropdownToggle caret color="info">
+                All Zones
+              </DropdownToggle>
+              <DropdownMenu right>
+                <DropdownItem>Zone 1</DropdownItem>
+                <DropdownItem>Zone 2</DropdownItem>
+                <DropdownItem>Zone 3</DropdownItem>
+                <DropdownItem>Zone 4</DropdownItem>
+              </DropdownMenu>
+            </ButtonDropdown>
+          </Col> 
         </Row>
         <br/>
         <Row>
           <Col xs="12" sm="6" lg="3">
             <Card className="text-white bg-success">
-              <CardBody className="pb-0">
-                <h5>Zone:1</h5>
+              <CardBody>
+                <h5><strong>Zone:1</strong></h5>
                 <Row>
                   <Col md="6">
                     <h6>Total Toll</h6>
@@ -181,8 +189,8 @@ class Dashboard extends Component {
 
           <Col xs="12" sm="6" lg="3">
             <Card className="text-white bg-primary">
-              <CardBody className="pb-0">
-                <h5>Zone:2</h5>
+              <CardBody>
+                <h5><strong>Zone:2</strong></h5>
                 <Row>
                   <Col md="6">
                     <h6>Total Toll</h6>
@@ -197,8 +205,8 @@ class Dashboard extends Component {
 
           <Col xs="12" sm="6" lg="3">
             <Card className="text-white bg-warning">
-              <CardBody className="pb-0">
-                <h5>Zone:3</h5>
+              <CardBody>
+                <h5><strong>Zone:3</strong></h5>
                 <Row>
                   <Col md="6">
                     <h6>Total Toll</h6>
@@ -213,8 +221,8 @@ class Dashboard extends Component {
 
           <Col xs="12" sm="6" lg="3">
             <Card className="text-white bg-danger">
-              <CardBody className="pb-0">
-                <h5>Zone:4</h5>
+              <CardBody>
+                <h5><strong>Zone:4</strong></h5>
                 <Row>
                   <Col md="6">
                     <h6>Total Toll</h6>
@@ -261,6 +269,14 @@ class Dashboard extends Component {
             </Card>
           </Col>
         </Row>
+        <Row>
+          <Col md="12" lg="12">
+            <div className="load-button">
+              <Button block color="info">Load More</Button>
+            </div>  
+          </Col>
+        </Row>
+        <br/>
       </div>
     );
   }
