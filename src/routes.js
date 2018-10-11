@@ -129,6 +129,16 @@ const Logs = Loadable({
   loading: Loading,
 });
 
+const AdminTimeSheets = Loadable({
+  loader: () => import('./views/BusinessUser/timeSheet'),
+  loading: Loading,
+});
+
+const AdminTolls = Loadable({
+  loader: () => import('./views/BusinessUser/tolls-taxes'),
+  loading: Loading,
+});
+
 const AdminVehicles = Loadable({
   loader: () => import('./views/Admin/vehicles'),
   loading: Loading,
@@ -144,8 +154,8 @@ const AdminBreakdown = Loadable({
   loading: Loading,
 });
 
-const AdminDrivers = Loadable({
-  loader: () => import('./views/Admin/driver.js'),
+const AdminDVIR = Loadable({
+  loader: () => import('./views/Admin/dvir.js'),
   loading: Loading,
 });
 
@@ -272,9 +282,11 @@ const routes = [
   { path: '/srinivas/addDevice', excat: true, name: 'By Operation Team', component: AddDevice },
   { path: '/home/dashboard', name: 'By Operation Team', component: Dashboard },
   { path: '/home/vehicles', name:'Vehicles', component:AdminVehicles },
+  { path: '/home/timeSheet', name:'Time Sheet Summary', component:AdminTimeSheets },
+  { path: '/home/tolls', name:'Tolls', component:AdminTolls },
   { path: '/home/fuel', name:'Fuel Report', component:AdminFuel },
   { path: '/home/breakdown', name:'Breakdown Summary', component:AdminBreakdown },
-  { path: '/home/addDriver', name:'Drivers', component:AdminDrivers },
+  { path: '/home/dvir', name:'Drivers', component:AdminDVIR },
   { path: '/manager/dashboard', name: 'By Operation Team', component: ManagerDashboard },
   { path: '/home/theme', exact: true, name: 'Theme', component: Colors },
   { path: '/home/theme/colors', name: 'Colors', component: Colors },

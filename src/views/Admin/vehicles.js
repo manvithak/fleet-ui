@@ -3,187 +3,327 @@ import { Badge, Card, CardBody, CardHeader, CardFooter, Col, Pagination, Paginat
  PaginationLink, Row, Table, Button, Modal, ModalHeader, ModalBody, ModalFooter,Form,
   FormGroup,
   FormText,Label,Input } from 'reactstrap';
+import { CustomTooltips } from '@coreui/coreui-plugin-chartjs-custom-tooltips';
+import { getStyle, hexToRgba } from '@coreui/coreui/dist/js/coreui-utilities';
+import {Line} from 'react-chartjs-2';
 
+const brandPrimary = getStyle('--primary')
+const brandSuccess = getStyle('--success')
+const brandInfo = getStyle('--info')
+const brandWarning = getStyle('--warning')
+const brandDanger = getStyle('--danger')
+
+
+const cardChartData2 = {
+    labels: ['4 oct', '5 oct', '6 oct', '7 oct', '8 oct', '9 oct'],
+    datasets: [
+      {
+        label: 'zone-1',
+        borderColor: brandSuccess,
+        data: [76,86,75, 91, 101, 102],
+        fill: false,
+      },
+      {
+        label: 'zone-2',
+        borderColor: brandPrimary ,
+        data: [91,102,110, 98, 101, 114],
+        fill: false,
+      },
+      {
+        label: 'zone-3',
+        borderColor: brandWarning,
+        data: [69,61,71, 60, 65, 72],
+        fill: false,
+      },
+      {
+        label: 'zone-4',
+        borderColor: brandDanger,
+        data: [91,129,131, 101, 118, 99],
+        fill: false,
+      }
+    ],
+  };
+
+const cardChartOpts2 = {
+  tooltips: {
+    enabled: false,
+    custom: CustomTooltips
+  },
+  maintainAspectRatio: true,
+  showAreas: false,
+  legend: {
+    display: true,
+  },
+  scales: {
+    xAxes: [
+      {
+        gridLines: {
+          color: 'transparent',
+          zeroLineColor: 'transparent',
+        },
+        ticks: {
+          fontSize: 2,
+          fontColor: 'transparent',
+        },
+        scaleLabel: {
+          display: true,
+          labelString: 'Dates'
+        }
+      }],
+    yAxes: [
+      {
+        display: true,
+        ticks: {
+          display: true,
+          min: Math.min.apply(Math, cardChartData2.datasets[2].data) - 0,
+          max: Math.max.apply(Math, cardChartData2.datasets[3].data) + 5,
+        },
+        scaleLabel: {
+          display: true,
+          labelString: 'Working In Transit'
+        }
+      }],
+  },
+  elements: {
+    line: {
+      tension: 0.00001,
+      borderWidth: 1,
+    },
+    point: {
+      radius: 4,
+      hitRadius: 10,
+      hoverRadius: 4,
+    },
+  },
+};
+
+const cardChartData3 = {
+    labels: ['4 oct', '5 oct', '6 oct', '7 oct', '8 oct', '9 oct'],
+    datasets: [
+      {
+        label: 'zone-1',
+        borderColor: brandSuccess,
+        data: [12, 15, 14, 9, 10, 11],
+        fill: false,
+      },
+      {
+        label: 'zone-2',
+        borderColor: brandPrimary ,
+        data: [14, 21, 13, 18, 14, 12],
+        fill: false,
+      },
+      {
+        label: 'zone-3',
+        borderColor: brandWarning,
+        data: [11, 18, 7, 17, 9, 10],
+        fill: false,
+      },
+      {
+        label: 'zone-4',
+        borderColor: brandDanger,
+        data: [9, 28, 9, 17, 12, 11],
+        fill: false,
+      }
+    ],
+  };
+
+const cardChartOpts3 = {
+  tooltips: {
+    enabled: false,
+    custom: CustomTooltips
+  },
+  maintainAspectRatio: true,
+  showAreas: false,
+  legend: {
+    display: true,
+  },
+  scales: {
+    xAxes: [
+      {
+        gridLines: {
+          color: 'transparent',
+          zeroLineColor: 'transparent',
+        },
+        ticks: {
+          fontSize: 2,
+          fontColor: 'transparent',
+        },
+        scaleLabel: {
+          display: true,
+          labelString: 'Dates'
+        }
+      }],
+    yAxes: [
+      {
+        display: true,
+        ticks: {
+          display: true,
+          min: Math.min.apply(Math, cardChartData3.datasets[2].data) - 0,
+          max: Math.max.apply(Math, cardChartData3.datasets[3].data) + 5,
+        },
+        scaleLabel: {
+          display: true,
+          labelString: 'Working but idle'
+        }
+      }],
+  },
+  elements: {
+    line: {
+      tension: 0.00001,
+      borderWidth: 1,
+    },
+    point: {
+      radius: 4,
+      hitRadius: 10,
+      hoverRadius: 4,
+    },
+  },
+};
 class Vehicles extends Component {
   constructor(props){
     super(props)
     this.state={
       vehicles:[{
-        vNumber: 'TS09 E 1105',
-        modelNumber: 'K. Pradeep Sagar',
-        type: 'truck',
-        payload: 1500,
-        fuelCapacity: 100,
-        serviceInterval: 1500,
+        date: '05-oct-2018',
+        zone: 'zone-1',
+        workingIdle: 15,
+        workingTransit: 86,
+        brokeDown: 14,
+        accident: 5,
       },
       {
-        vNumber: 'TS09 EJ 0252',
-        modelNumber: 'P.Sandeep',
-        type: 'mini-truck',
-        payload: 1000,
-        fuelCapacity: 70,
-        serviceInterval: 1000,
+        date: '05-oct-2018',
+        zone: 'zone-2',
+        workingIdle: 21,
+        workingTransit: 102,
+        brokeDown: 21,
+        accident: 12,
       },{
-        vNumber: 'TS09 E 4215',
-        modelNumber: 'A. Shekhar',
-        type: 'scooter',
-        payload: 200,
-        fuelCapacity: 200,
-        serviceInterval: 800,
+        date: '05-oct-2018',
+        zone: 'zone-3',
+        workingIdle: 18,
+        workingTransit: 61,
+        brokeDown: 8,
+        accident: 7,
       },{
-        vNumber: 'TS09 E 3824',
-        modelNumber: 'G. Bhupal',
-        type: 'mini-truck',
-        payload: 600,
-        fuelCapacity: 60,
-        serviceInterval: 1000,
-      },{
-        vNumber: 'TS09 E 7216',
-        modelNumber: 'B N. Chary',
-        type: 'scooter',
-        payload: 250,
-        fuelCapacity: 20,
-        serviceInterval: 1000,
-      },{
-        vNumber: 'TS09 E 2367',
-        modelNumber: 'J. Naresh',
-        type: 'scooter',
-        payload: 200,
-        fuelCapacity: 25,
-        serviceInterval: 1000,
-      },{
-        vNumber: 'TS09 E 1189',
-        modelNumber: 'G. PaidiRaju',
-        type: 'scooter',
-        payload: 100,
-        fuelCapacity: 15,
-        serviceInterval: 1000,
-      }],
-      modal: false,
-      vNumber: '',
-      modelNumber: '',
-      type: '',
-      payload: 0,
-      fuelCapacity: 0,
-      serviceInterval: 0
+        date: '05-oct-2018',
+        zone: 'zone-4',
+        workingIdle: 28,
+        workingTransit: 129,
+        brokeDown: 10,
+        accident: 2,
+      }]
     }
-  this.toggle = this.toggle.bind(this);
-  this.handleSubmit = this.handleSubmit.bind(this);
-  this.handleChange = this.handleChange.bind(this);
   }
-  handleChange(event){
-    const target = event.target;
-    const value = target.value;
-    const name = target.name ;
-    this.setState({
-      [name]: value
-    });
-  }
-  toggle() {
-    this.setState({
-      modal: !this.state.modal
-    })
-  }
-  handleSubmit(e){
-    console.log(this.state.vNumber);
-    var obj={
-      vNumber:this.state.vNumber,
-      modelNumber:this.state.modelNumber,
-      type:this.state.type,
-      payload:this.state.payload,
-      fuelCapacity:this.state.fuelCapacity,
-      serviceInterval:this.state.fuelCapacity
-    }
-    var vehicles = this.state.vehicles.slice();
-    vehicles.push(obj)
-    this.setState({
-      modal: !this.state.modal,
-      vehicles: vehicles
-    })
-  }
+
   render() {
     return (
       <div className="animated fadeIn">
         <Row>
-          <Col md="10">
+          <Col xs="12" sm="6" lg="3">
+            <Card className="text-white bg-success">
+              <CardBody className="pb-0">
+                <div>Zone:1</div>
+                <Row>
+                  <Col md="8">
+                    <div>Total Vehicles</div>
+                    <div>Working (idle)</div>
+                    <div>Working (transit)</div>
+                    <div>Broke Down</div>
+                    <div>Accident</div>
+                  </Col>
+                  <Col md="4">
+                    <div>120</div>
+                    <div>15</div>
+                    <div>86</div>
+                    <div>14</div>
+                    <div>5</div>
+                  </Col> 
+                </Row>
+              </CardBody>
+            </Card>
           </Col>
-          <Col md="2">
-            
-            <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-              <ModalHeader toggle={this.toggle}>Add Vehicle</ModalHeader>
-              <ModalBody>
-                <Card>
-                  <CardHeader>
-                    <strong>AddVehicle</strong> Form
-                  </CardHeader>
-                  <CardBody>
-                    <Form onSubmit={this.handleSubmit} encType="multipart/form-data" className="form-horizontal">
-                      <FormGroup row>
-                        <Col md="3">
-                          <Label htmlFor="deviceId">Device Id</Label>
-                        </Col>
-                        <Col xs="12" md="9">
-                          <Input type="text" id="vNumber" name="vNumber" placeholder="Vehicle Number" 
-                          value={this.state.vNumber} onChange={this.handleChange}/>
-                        </Col>
-                      </FormGroup>
-                      <FormGroup row>
-                        <Col md="3">
-                          <Label htmlFor="modelNumber">Model Number</Label>
-                        </Col>
-                        <Col xs="12" md="9">
-                          <Input type="text" id="modelNumber" name="modelNumber" placeholder="Model Number" 
-                          value={this.state.modelNumber} onChange={this.handleChange}/>
-                        </Col>
-                      </FormGroup>
-                      <FormGroup row>
-                        <Col md="3">
-                          <Label htmlFor="type">Type</Label>
-                        </Col>
-                        <Col xs="12" md="9">
-                          <Input type="text" id="type" name="type" placeholder="Type" 
-                          value={this.state.type} onChange={this.handleChange}/>
-                        </Col>
-                      </FormGroup>
-                      <FormGroup row>
-                        <Col md="3">
-                          <Label htmlFor="payload">Payload</Label>
-                        </Col>
-                        <Col xs="12" md="9">
-                          <Input type="number" id="payload" name="payload" placeholder="Payload" 
-                          value={this.state.payload} onChange={this.handleChange}/>
-                        </Col>
-                      </FormGroup>
-                      <FormGroup row>
-                        <Col md="3">
-                          <Label htmlFor="fuelCapacity">Fuel Capacity</Label>
-                        </Col>
-                        <Col xs="12" md="9">
-                          <Input type="number" id="fuelCapacity" name="fuelCapacity" placeholder="Fuel Capacity" 
-                          value={this.state.fuelCapacity} onChange={this.handleChange}/>
-                        </Col>
-                      </FormGroup>
-                      <FormGroup row>
-                        <Col md="3">
-                          <Label htmlFor="serviceInterval">Service Interval</Label>
-                        </Col>
-                        <Col xs="12" md="9">
-                          <Input type="number" id="serviceInterval" name="serviceInterval" placeholder="Service Interval" 
-                          value={this.state.serviceInterval} onChange={this.handleChange}/>
-                        </Col>
-                      </FormGroup>
-                    </Form>
-                  </CardBody>
-                </Card>
-              </ModalBody>
-              <ModalFooter>
-                <Button color="success" onClick={this.handleSubmit}>Add vehicle</Button>{' '}
-                <Button color="danger" onClick={this.toggle}>Cancel</Button>
-              </ModalFooter>
-            </Modal>
+
+          <Col xs="12" sm="6" lg="3">
+            <Card className="text-white bg-primary">
+              <CardBody className="pb-0">
+                <div>Zone:2</div>
+                <Row>
+                  <Col md="8">
+                    <div>Total Vehicles</div>
+                    <div>Working (idle)</div>
+                    <div>Working (transit)</div>
+                    <div>Broke Down</div>
+                    <div>Accident</div>
+                  </Col>
+                  <Col md="4">
+                    <div>156</div>
+                    <div>21</div>
+                    <div>102</div>
+                    <div>21</div>
+                    <div>12</div>
+                  </Col> 
+                </Row>
+              </CardBody>
+            </Card>
+          </Col>
+
+          <Col xs="12" sm="6" lg="3">
+            <Card className="text-white bg-warning">
+              <CardBody className="pb-0">
+                <div>Zone:3</div>
+                <Row>
+                  <Col md="8">
+                    <div>Total Vehicles</div>
+                    <div>Working (idle)</div>
+                    <div>Working (transit)</div>
+                    <div>Broke Down</div>
+                    <div>Accident</div>
+                  </Col>
+                  <Col md="4">
+                    <div>94</div>
+                    <div>18</div>
+                    <div>61</div>
+                    <div>8</div>
+                    <div>7</div>
+                  </Col> 
+                </Row>
+              </CardBody>
+            </Card>
+          </Col>
+
+          <Col xs="12" sm="6" lg="3">
+            <Card className="text-white bg-danger">
+              <CardBody className="pb-0">
+                <div>Zone:4</div>
+                <Row>
+                  <Col md="8">
+                    <div>Total Vehicles</div>
+                    <div>Working (idle)</div>
+                    <div>Working (transit)</div>
+                    <div>Broke Down</div>
+                    <div>Accident</div>
+                  </Col>
+                  <Col md="4">
+                    <div>169</div>
+                    <div>28</div>
+                    <div>129</div>
+                    <div>10</div>
+                    <div>2</div>
+                  </Col> 
+                </Row>
+              </CardBody> 
+            </Card>
           </Col>
         </Row>
-        <br />
+        <Row>
+          <Col xs="12" lg="6" sm="12" md="6">
+            <Line data={cardChartData2} options={cardChartOpts2}/>
+          </Col>
+          <Col xs="12" lg="6" sm="12" md="6">
+            <Line data={cardChartData3} options={cardChartOpts3}/>
+          </Col>
+        </Row>
         <Row>
           <Col xs="12" lg="12">
             <Card>
@@ -191,24 +331,24 @@ class Vehicles extends Component {
                 <Table borderless>
                   <thead>
                   <tr>
-                    <th>VehicleNumber</th>
-                    <th>Driver Name</th>
-                    <th>Type</th>
-                    <th>Payload in Kg</th>
-                    <th>Fuel Capacity in Lit</th>
-                    <th>Service Interval</th>
+                    <th>Date</th>
+                    <th>Zone</th>
+                    <th>Working(idle)</th>
+                    <th>Working(transit)</th>
+                    <th>Brokedown</th>
+                    <th>Accident</th>
                   </tr>
                   </thead>
                   <tbody>
                   {this.state.vehicles.map((vehicle, index) => {
                     return(
                       <tr>
-                        <td>{vehicle.vNumber}</td>
-                        <td>{vehicle.modelNumber}</td>
-                        <td>{vehicle.type}</td>
-                        <td>{vehicle.payload}</td>
-                        <td>{vehicle.fuelCapacity}</td>
-                        <td>{vehicle.serviceInterval}</td>
+                        <td>{vehicle.date}</td>
+                        <td>{vehicle.zone}</td>
+                        <td>{vehicle.workingIdle}</td>
+                        <td>{vehicle.workingTransit}</td>
+                        <td>{vehicle.brokeDown}</td>
+                        <td>{vehicle.accident}</td>
                       </tr>
                       )
                   })}

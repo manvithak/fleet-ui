@@ -43,21 +43,13 @@ export default {
     },
     {
       name: 'Time Sheet Summary',
-      url: '#',
+      url: '/home/timeSheet',
       icon: 'icon-puzzle',
-      badge: {
-        variant: 'info',
-        text: 'SOON',
-      },
     },
     {
       name: 'Tolls & Taxes report',
-      url: '#',
+      url: '/home/tolls',
       icon: 'icon-puzzle',
-      badge: {
-        variant: 'info',
-        text: 'SOON',
-      },
     },
     {
       title: true,
@@ -74,12 +66,8 @@ export default {
     },
     {
       name: 'DVIR Summary',
-      url: '#',// /home/addDriver
+      url: '/home/dvir',// /home/addDriver
       icon: 'icon-puzzle',
-      badge: {
-        variant: 'info',
-        text: 'SOON',
-      },
     },
     {
       name: 'Fuel Report',
