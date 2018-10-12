@@ -240,7 +240,7 @@ class ActiveTrips extends Component {
                             <p className="text-muted">DRIVING TIME</p>
                           </Col>
                           <Col xs="12" sm="12" md="6" xl="8">
-                            <p>15 mins</p>
+                            <p>1 Hour 15 mins</p>
                           </Col>
                         </Row>
                       </Col>
