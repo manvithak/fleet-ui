@@ -169,30 +169,40 @@ class Breakdown extends Component {
     super(props);
     this.state={
       breakdowns:[{
-        date: '05-oct-2018',
+        date: '09-oct-2018',
         zone: 'zone-1',
         location:'Krishna Nagar'
       },
       {
-        date: '04-oct-2018',
-        zone: 'zone-1',
-        location:'Madhapur'
-      },{
-        date: '03-oct-2018',
+        date: '09-oct-2018',
         zone: 'zone-2',
-        location:'Kukatpally'
-      },{
-        date: '05-oct-2018',
+        location:'Madhapur'
+      },
+      {
+        date: '09-oct-2018',
         zone: 'zone-3',
-        location:'Krishna Nagar'
-      },{
-        date: '06-oct-2018',
+        location:'Begumpet'
+      },
+      {
+        date: '09-oct-2018',
         zone: 'zone-4',
+        location:'Chanda Nagar'
+      },{
+        date: '08-oct-2018',
+        zone: 'zone-1',
         location:'Banjara Hills'
       },{
-        date: '05-oct-2018',
-        zone: 'zone-1',
-        location:'Ameerpet'
+        date: '08-oct-2018',
+        zone: 'zone-2',
+        location:'Gachibowli'
+      },{
+        date: '08-oct-2018',
+        zone: 'zone-3',
+        location:'Secunderabad'
+      },{
+        date: '08-oct-2018',
+        zone: 'zone-4',
+        location:'Miyapur'
       }],
       dropdownOpen: new Array(19).fill(false),
     }

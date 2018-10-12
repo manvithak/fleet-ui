@@ -187,24 +187,24 @@ class Vehicles extends Component {
     super(props)
     this.state={
       vehicles:[{
-        date: '05-oct-2018',
+        date: '09-oct-2018',
         zone: 'zone-1',
         liters: 201,
         cost: 14070
       },
       {
-        date: '05-oct-2018',
-        zone: 'zone-1',
+        date: '09-oct-2018',
+        zone: 'zone-2',
         liters: 258,
         cost: 18060
       },{
-        date: '05-oct-2018',
-        zone: 'zone-1',
+        date: '09-oct-2018',
+        zone: 'zone-3',
         liters: 298,
         cost: 20860
       },{
-        date: '05-oct-2018',
-        zone: 'zone-1',
+        date: '09-oct-2018',
+        zone: 'zone-4',
         liters: 392,
         cost: 27440
       }],
