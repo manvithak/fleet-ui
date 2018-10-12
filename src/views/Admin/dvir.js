@@ -291,14 +291,6 @@ class DVIR extends Component {
             <Bar data={cardChartData4} options={cardChartOpts4}/>
           </Col>
         </Row>
-        <Row>
-          <Col md="12" lg="12">
-            <div className="load-button">
-              <Button block color="info">Load More</Button>
-            </div>  
-          </Col>
-        </Row>
-        <br/>
       </div>
 
     );

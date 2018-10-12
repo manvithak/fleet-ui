@@ -36,11 +36,12 @@ class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.state={
-      timeSheets:[{
+      timeSheets:[
+      {
         date:'09-oct-2018',
         zone:'zone-1',
         idleTime:'6 hrs',
-        drivingTime:'49 hrs',
+        drivingTime:'51 hrs',
         rest:'4 hrs'
       },{
         date:'09-oct-2018',
@@ -54,13 +55,43 @@ class Dashboard extends Component {
         idleTime:'5 hrs',
         drivingTime:'62 hrs',
         rest:'6 hrs'
-      },{
+      },
+      {
         date:'09-oct-2018',
         zone:'zone-4',
         idleTime:'5 hrs',
         drivingTime:'56 hrs',
         rest:'3 hrs'
-      }],
+      },
+      {
+        date:'08-oct-2018',
+        zone:'zone-1',
+        idleTime:'6 hrs',
+        drivingTime:'49 hrs',
+        rest:'2 hrs'
+      },
+      {
+        date:'8-oct-2018',
+        zone:'zone-2',
+        idleTime:'4 hrs',
+        drivingTime:'62 hrs',
+        rest:'4 hrs'
+      },
+      {
+        date:'8-oct-2018',
+        zone:'zone-3',
+        idleTime:'5 hrs',
+        drivingTime:'56 hrs',
+        rest:'3 hrs'
+      },
+      {
+        date:'8-oct-2018',
+        zone:'zone-4',
+        idleTime:'5 hrs',
+        drivingTime:'59 hrs',
+        rest:'2 hrs'
+      }
+      ],
       dropdownOpen: new Array(19).fill(false),
     }
     this.toggle = this.toggle.bind(this);

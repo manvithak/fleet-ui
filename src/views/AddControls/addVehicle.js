@@ -9,51 +9,51 @@ class Vehicles extends Component {
     super(props)
     this.state={
       vehicles:[{
-        vNumber: 'TS09 E 1105',
-        modelNumber: 'K. Pradeep Sagar',
+        vNumber: 'TS09 EJ 0252',
+        modelNumber: 'B-1267',
         type: 'truck',
         payload: 50,
         fuelCapacity: 20,
         serviceInterval: 1500,
       },
       {
-        vNumber: 'TS09 E 1105',
-        modelNumber: 'K. Pradeep Sagar',
+        vNumber: 'TS09 EJ 4278',
+        modelNumber: 'B-1189',
         type: 'mini-truck',
         payload: 20,
         fuelCapacity: 20,
         serviceInterval: 1000,
       },{
-        vNumber: 'TS09 E 1105',
-        modelNumber: 'K. Pradeep Sagar',
+        vNumber: 'TS09 EJ 3216',
+        modelNumber: 'M-123',
+        type: 'scooter',
+        payload: 10,
+        fuelCapacity: 20,
+        serviceInterval: 1000,
+      },{
+        vNumber: 'TS09 EJ 4235',
+        modelNumber: 'S-2314',
         type: 'scooter',
         payload: 10,
         fuelCapacity: 20,
         serviceInterval: 1000,
       },{
         vNumber: 'TS09 E 1105',
-        modelNumber: 'K. Pradeep Sagar',
+        modelNumber: 'S-3569',
         type: 'scooter',
         payload: 10,
         fuelCapacity: 20,
         serviceInterval: 1000,
       },{
-        vNumber: 'TS09 E 1105',
-        modelNumber: 'K. Pradeep Sagar',
+        vNumber: 'TS09 EJ 7902',
+        modelNumber: 'S-4367',
         type: 'scooter',
         payload: 10,
         fuelCapacity: 20,
         serviceInterval: 1000,
       },{
-        vNumber: 'TS09 E 1105',
-        modelNumber: 'K. Pradeep Sagar',
-        type: 'scooter',
-        payload: 10,
-        fuelCapacity: 20,
-        serviceInterval: 1000,
-      },{
-        vNumber: 'TS09 E 1105',
-        modelNumber: 'K. Pradeep Sagar',
+        vNumber: 'TS09 EJ 1435',
+        modelNumber: 'S-6547',
         type: 'scooter',
         payload: 10,
         fuelCapacity: 20,
@@ -218,6 +218,14 @@ class Vehicles extends Component {
             </Card>
           </Col>
         </Row>
+        <Row>
+          <Col md="12" lg="12">
+            <div className="load-button">
+              <Button block color="info">Load More</Button>
+            </div>  
+          </Col>
+        </Row>
+        <br/>
       </div>
 
     );

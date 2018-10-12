@@ -188,8 +188,38 @@ class Vehicles extends Component {
   constructor(props){
     super(props)
     this.state={
-      vehicles:[{
-        date: '05-oct-2018',
+      vehicles:[
+      {
+        date: '08-oct-2018',
+        zone: 'zone-1',
+        workingIdle: 14,
+        workingTransit: 87,
+        brokeDown: 12,
+        accident: 6,
+      },
+      {
+        date: '08-oct-2018',
+        zone: 'zone-2',
+        workingIdle: 19,
+        workingTransit: 104,
+        brokeDown: 19,
+        accident: 14,
+      },{
+        date: '08-oct-2018',
+        zone: 'zone-3',
+        workingIdle: 17,
+        workingTransit: 63,
+        brokeDown: 10,
+        accident: 5,
+      },{
+        date: '08-oct-2018',
+        zone: 'zone-4',
+        workingIdle: 27,
+        workingTransit: 131,
+        brokeDown: 9,
+        accident: 2,
+      },{
+        date: '09-oct-2018',
         zone: 'zone-1',
         workingIdle: 15,
         workingTransit: 86,
@@ -197,21 +227,21 @@ class Vehicles extends Component {
         accident: 5,
       },
       {
-        date: '05-oct-2018',
+        date: '09-oct-2018',
         zone: 'zone-2',
         workingIdle: 21,
         workingTransit: 102,
         brokeDown: 21,
         accident: 12,
       },{
-        date: '05-oct-2018',
+        date: '09-oct-2018',
         zone: 'zone-3',
         workingIdle: 18,
         workingTransit: 61,
         brokeDown: 8,
         accident: 7,
       },{
-        date: '05-oct-2018',
+        date: '09-oct-2018',
         zone: 'zone-4',
         workingIdle: 28,
         workingTransit: 129,

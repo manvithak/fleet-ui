@@ -120,19 +120,36 @@ class Dashboard extends Component {
       tolls:[{
         date:'09-oct-2018',
         zone:'zone-1',
-        amount:'5840.00 rs'
+        amount:'585.00 rs'
       },{
         date:'09-oct-2018',
         zone:'zone-2',
-        amount:'6250.00 rs'
+        amount:'625.00 rs'
       },{
         date:'09-oct-2018',
         zone:'zone-3',
-        amount:'4560.00 rs'
+        amount:'450.00 rs'
       },{
         date:'09-oct-2018',
         zone:'zone-4',
-        amount:'7100.00 rs'
+        amount:'710.00 rs'
+      },
+      {
+        date:'08-oct-2018',
+        zone:'zone-1',
+        amount:'525.00 rs'
+      },{
+        date:'08-oct-2018',
+        zone:'zone-2',
+        amount:'610.00 rs'
+      },{
+        date:'08-oct-2018',
+        zone:'zone-3',
+        amount:'510.00 rs'
+      },{
+        date:'08-oct-2018',
+        zone:'zone-4',
+        amount:'690.00 rs'
       }],
       dropdownOpen: new Array(19).fill(false),
     }
